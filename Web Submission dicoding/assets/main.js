@@ -1,27 +1,27 @@
-var currentSlide = 1;
+var slide1 = 1;
 
 
-function showSlide(slideIndex) {
-  const slides = document.getElementsByClassName('carouselImgs');
-  if (slideIndex > slides.length) { currentSlide = 1 }
-  if (slideIndex < 1) { currentSlide = slides.length }
+function showSlide(indexslide) {
+  const slides = document.getElementsByClassName('carousel-imgs');
+  if (indexslide > slides.length) { slide1 = 1 }
+  if (indexslide < 1) { slide1 = slides.length }
   for (var i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none'
   }
-  slides[currentSlide - 1].style.display = 'flex'
+  slides[slide1 - 1].style.display = 'flex'
 }
 
 
 function nextSlide() {
-  showSlide(currentSlide += 1);
+  showSlide(slide1 += 1);
 }
 
 function previousSlide() {
-  showSlide(currentSlide -= 1);
+  showSlide(slide1 -= 1);
 }
 
 window.onload = function () {
-  showSlide(currentSlide);
+  showSlide(slide1);
   document.getElementById('prev').addEventListener('click', function () {
     previousSlide();
   })
@@ -30,13 +30,10 @@ window.onload = function () {
   })
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("drop").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
